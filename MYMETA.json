@@ -28,12 +28,11 @@
       "runtime" : {
          "requires" : {
             "Getopt::Long" : "2.38",
-            "HTML::TreeBuilder" : "4.2",
-            "HTTP::Tiny" : "0.022",
             "Hash::FieldHash" : "0.12",
             "Log::Handler" : "0.75",
             "Mojolicious" : "3.3",
             "Pod::Usage" : "1.51",
+            "Try::Tiny" : "0.11",
             "feature" : "1.2",
             "strict" : "1.03",
             "warnings" : "1.03"
