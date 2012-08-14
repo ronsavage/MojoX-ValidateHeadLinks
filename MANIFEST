@@ -8,5 +8,11 @@ MANIFEST			This list of files
 META.json
 META.yml
 README
+t/assets/css/local/default.css
+t/assets/js/DataTables-1.9.2/media/css/demo_page.css
+t/assets/js/DataTables-1.9.2/media/css/demo_table.css
+t/assets/js/DataTables-1.9.2/media/js/jquery.dataTables.min.js
+t/assets/js/DataTables-1.9.2/media/js/jquery.js
 t/load.t
 t/pod.t
+t/run.t
