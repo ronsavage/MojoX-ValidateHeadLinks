@@ -40,6 +40,12 @@
          }
       }
    },
+   "provides" : {
+      "MojoX::ValidateHeadLinks" : {
+         "file" : "lib/MojoX/ValidateHeadLinks.pm",
+         "version" : "1.00"
+      }
+   },
    "release_status" : "stable",
    "resources" : {
       "license" : [
