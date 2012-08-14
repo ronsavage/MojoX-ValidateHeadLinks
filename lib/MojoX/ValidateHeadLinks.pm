@@ -212,7 +212,7 @@ sub run
 
 =head1 NAME
 
-MojoX-ValidateHeadLinks - Ensure CSS and JS links in web pages point to real files
+MojoX::ValidateHeadLinks - Ensure CSS and JS links in web pages point to real files
 
 =head1 Synopsis
 
@@ -227,7 +227,7 @@ when the module is installed.
 
 =head1 Description
 
-C<MojoX-ValidateHeadLinks> is a pure Perl module.
+C<MojoX::ValidateHeadLinks> is a pure Perl module.
 
 It does no more than this:
 
@@ -415,7 +415,7 @@ L<https://rt.cpan.org/Public/Dist/Display.html?Name=MojoX::ValidateHeadLinks>.
 
 =head1 Author
 
-C<MojoX-ValidateHeadLinks> was written by Ron Savage I<E<lt>ron@savage.net.auE<gt>> in 2012.
+C<MojoX::ValidateHeadLinks> was written by Ron Savage I<E<lt>ron@savage.net.auE<gt>> in 2012.
 
 Home page: L<http://savage.net.au/index.html>.
 
