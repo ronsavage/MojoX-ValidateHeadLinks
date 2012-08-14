@@ -4,8 +4,6 @@ use feature 'say';
 use strict;
 use warnings;
 
-use Data::Dumper::Concise;
-
 use Hash::FieldHash ':all';
 
 use Log::Handler;
@@ -251,30 +249,30 @@ It handles the '@import' option used in some CSS links.
 
 This module is available as a Unix-style distro (*.tgz).
 
-See http://savage.net.au/Perl-modules.html for details.
+See L<http://savage.net.au/Perl-modules.html> for details.
 
-See http://savage.net.au/Perl-modules/html/installing-a-module.html for
+See L<http://savage.net.au/Perl-modules/html/installing-a-module.html> for
 help on unpacking and installing.
 
 =head1 Constructor and initialization
 
-new(...) returns an object of type C<MojoX-ValidateHeadLinks>.
+new(...) returns an object of type C<MojoX::ValidateHeadLinks>.
 
 This is the class's contructor.
 
-Usage: C<< MojoX-ValidateHeadLinks -> new() >>.
+Usage: C<< MojoX::ValidateHeadLinks -> new() >>.
 
 This method takes a hashref of options.
 
 Call C<new()> as C<< new({option_1 => value_1, option_2 => value_2, ...}) >>.
 
-Available options:
+Available options (which are also methods):
 
 =over 4
 
 =item o doc_root => $dir_name
 
-Use this to specify the doc root of your web server. This option is mandatory.
+Use this to specify the doc root directory of your web server. This option is mandatory.
 
 Default: ''.
 
@@ -288,7 +286,7 @@ Default: 'notice'.
 
 For more details in the printed report, try:
 
-	my($validator) = HMTL::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u);
+	MojoX::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u) -> run;
 
 =item o minlevel => $logOption2
 
@@ -332,7 +330,7 @@ Get or set the value used by the logger object.
 
 For more details in the printed report, try:
 
-	my($validator) = HMTL::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u);
+	MojoX::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u) -> run;
 
 'maxlevel' is a parameter to L</new()>. See L</Constructor and Initialization> for details.
 
@@ -360,10 +358,6 @@ Errors can arise in these situations:
 
 =item o url has no value during the call to L</run()>
 
-=item o L<HTML::Tiny> could not access the url
-
-=item o The web page has no content
-
 =back
 
 =head2 run()
@@ -382,9 +376,8 @@ Get or set the URL of the web page your wish to check.
 
 =head2 How does bin/validate.head.links.pl differ from linkcheck.pl?
 
-linkcheck.pl does not check that links to non-HTML resources (CSS, JS) point to real files.
-
-See L<linkcheck.pl|http://world.std.com/~swmcd/steven/perl/pm/lc/linkcheck.html>.
+L<linkcheck.pl|http://world.std.com/~swmcd/steven/perl/pm/lc/linkcheck.html> does not check that links
+to non-HTML resources (CSS, JS) point to real files.
 
 =head2 How does the -max parameter affect the output?
 
@@ -424,7 +417,7 @@ L<https://rt.cpan.org/Public/Dist/Display.html?Name=MojoX::ValidateHeadLinks>.
 
 C<MojoX-ValidateHeadLinks> was written by Ron Savage I<E<lt>ron@savage.net.auE<gt>> in 2012.
 
-Home page: http://savage.net.au/index.html
+Home page: L<http://savage.net.au/index.html>.
 
 =head1 Copyright
 
