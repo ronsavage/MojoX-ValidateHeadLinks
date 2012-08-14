@@ -4,11 +4,15 @@ use feature 'say';
 use strict;
 use warnings;
 
+use Data::Dumper::Concise;
+
 use Hash::FieldHash ':all';
 
 use Log::Handler;
 
 use Mojo::UserAgent;
+
+use Try::Tiny;
 
 fieldhash my %doc_root => 'doc_root';
 fieldhash my %logger   => 'logger';
@@ -169,7 +173,21 @@ sub run
 		$self -> _count(\%want, 'link', $$item{tree}[$index]{href}) if ($index);
 	}
 
-#	if ($head -> can('script') )
+	# WTF: Tried $head -> can('script') and UNIVERSAL::can($head, 'script').
+
+	my($can);
+
+	try
+	{
+		my(@script) = $head -> script;
+		$can        = 1;
+	}
+	catch
+	{
+		$can = 0;
+	};
+
+	if ($can)
 	{
 		for my $item (@{$head -> script})
 		{
@@ -215,12 +233,19 @@ C<MojoX-ValidateHeadLinks> is a pure Perl module.
 
 It does no more than this:
 
-	o Uses HTTP::Tiny to get the web page
-	o Extracts the CSS and JS links
-	o Ensures these links point to real files
+=over 4
 
-The point is to run validate.head.links.pl after generating a web page, to check whether or not the code
-successfully built the <head> part of the page.
+=item o Download and parse a web page using L<Mojo::UserAgent>
+
+Hence the -url parameter to validate.head.links.pl.
+
+=item o Check whether the CSS and JS links point to real files
+
+Hence the -directory parameter to validate.head.links.pl.
+
+=back
+
+It handles the '@import' option used in some CSS links.
 
 =head1 Distributions
 
@@ -297,7 +322,7 @@ Get or set the name of your web server's doc root directory.
 
 Log the string $message at log level $level.
 
-The logger class is L<Log::Handler>.
+The logger object is of class L<Log::Handler>.
 
 =head2 maxlevel([$string])
 
@@ -345,7 +370,7 @@ Errors can arise in these situations:
 
 Does all the work.
 
-Returns the number of errors detected, so 0 is good and N > 1 is bad.
+Returns the number of errors detected, so 0 is good and N > 0 is bad.
 
 =head2 url([$url])
 
@@ -355,9 +380,39 @@ Get or set the URL of the web page your wish to check.
 
 =head1 FAQ
 
-=head2 How does bin/validate.head.links.pl differ from L<linkcheck.pl|http://world.std.com/~swmcd/steven/perl/pm/lc/linkcheck.html>?
+=head2 How does bin/validate.head.links.pl differ from linkcheck.pl?
 
-linkcheck.pl does not check that links to non-HTML resources point to read file.
+linkcheck.pl does not check that links to non-HTML resources (CSS, JS) point to real files.
+
+See L<linkcheck.pl|http://world.std.com/~swmcd/steven/perl/pm/lc/linkcheck.html>.
+
+=head2 How does the -max parameter affect the output?
+
+In these examples, $DR stands for the /dev/shm/html/ directory.
+
+Output from a real run, where my dev web site is the same as my prod web site (so -d $DR works):
+
+	shell> validate.head.links.pl -d $DR -url http://savage.net.au/Novels-etc.html -max debug
+
+	URL: http://savage.net.au/Novels-etc.html
+	 Import: /dev/shm/html/assets/js/DataTables-1.9.2/media/css/demo_page.css
+	 Import: /dev/shm/html/assets/js/DataTables-1.9.2/media/css/demo_table.css
+	   Link: /dev/shm/html/assets/css/local/default.css
+	 Script: /dev/shm/html/assets/js/DataTables-1.9.2/media/js/jquery.js
+	 Script: /dev/shm/html/assets/js/DataTables-1.9.2/media/js/jquery.dataTables.min.js
+	Imports: 2. Errors: 0
+	  Links: 1. Errors: 0
+	Scripts: 2. Errors: 0
+
+	shell> validate.head.links.pl -d $DR -url http://savage.net.au/Novels-etc.html -max info
+
+	Imports: 2. Errors: 0
+	  Links: 1. Errors: 0
+	Scripts: 2. Errors: 0
+
+	shell> validate.head.links.pl -d $DR -url http://savage.net.au/Novels-etc.html -max error
+
+	(No output)
 
 =head1 Support
 

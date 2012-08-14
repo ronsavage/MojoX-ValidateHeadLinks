@@ -42,7 +42,7 @@ __END__
 
 =head1 NAME
 
-validate.head.links.pl - Run MojoX::ValidateHeadLinks.
+validate.head.links.pl - Ensure CSS and JS links in web pages point to real files
 
 =head1 SYNOPSIS
 
@@ -83,7 +83,7 @@ Default: 'notice'.
 
 For more details in the printed report, try:
 
-my($validator) = HMTL::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u);
+my($validator) = MojoX::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u);
 
 =item o -minlevel logOption2
 
