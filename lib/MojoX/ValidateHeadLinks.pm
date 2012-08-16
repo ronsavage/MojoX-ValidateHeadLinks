@@ -219,6 +219,10 @@ MojoX::ValidateHeadLinks - Ensure CSS and JS links in web pages point to real fi
 	shell> validate.head.links.pl -h
 	shell> validate.head.links.pl -d /dev/shm/html -u http://127.0.0.1/index.html
 
+This program calls the L</run()> method, which returns the number of errors found. Various logging options,
+discussed under L</Constructor and initialization> and in the L</FAQ>, control the amount of output. Nothing
+is printed by default.
+
 On my machine, /dev/shm/ is the directory used to access Debian's built-in RAM disk, and /dev/shm/html/ is my
 web server's document root directory.
 
@@ -280,11 +284,11 @@ Default: ''.
 
 This option affects L<Log::Handler>.
 
-See the L<Log::Handler::Levels> docs.
+See the L<Log::Handler::Levels> docs, and the L</FAQ>.
 
-Default: 'notice'.
+Default: 'notice'. This means nothing is printed.
 
-For more details in the printed report, try:
+For maximum details in the printed report, try:
 
 	MojoX::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u) -> run;
 
@@ -332,7 +336,7 @@ For more details in the printed report, try:
 
 	MojoX::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u) -> run;
 
-'maxlevel' is a parameter to L</new()>. See L</Constructor and Initialization> for details.
+'maxlevel' is a parameter to L</new()>. See L</Constructor and Initialization>, and the L</FAQ>, for details.
 
 =head2 minlevel([$string])
 
@@ -379,11 +383,11 @@ Get or set the URL of the web page your wish to check.
 L<linkcheck.pl|http://world.std.com/~swmcd/steven/perl/pm/lc/linkcheck.html> does not check that links
 to non-HTML resources (CSS, JS) point to real files.
 
-=head2 How does the -max parameter affect the output?
+=head2 How does the -maxlevel parameter affect the output?
 
 In these examples, $DR stands for the /dev/shm/html/ directory.
 
-Output from a real run, where my dev web site is the same as my prod web site (so -d $DR works):
+Output from a real run, where my dev web site is the same as my real web site (so -d $DR works):
 
 	shell> validate.head.links.pl -d $DR -url http://savage.net.au/Novels-etc.html -max debug
 
