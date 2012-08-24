@@ -392,11 +392,11 @@ Output from a real run, where my dev web site is the same as my real web site (s
 	shell> validate.head.links.pl -d $DR -url http://savage.net.au/Novels-etc.html -max debug
 
 	URL: http://savage.net.au/Novels-etc.html
-	 Import: /dev/shm/html/assets/js/DataTables-1.9.2/media/css/demo_page.css
-	 Import: /dev/shm/html/assets/js/DataTables-1.9.2/media/css/demo_table.css
+	 Import: /dev/shm/html/assets/js/DataTables-1.9.3/media/css/demo_page.css
+	 Import: /dev/shm/html/assets/js/DataTables-1.9.3/media/css/demo_table.css
 	   Link: /dev/shm/html/assets/css/local/default.css
-	 Script: /dev/shm/html/assets/js/DataTables-1.9.2/media/js/jquery.js
-	 Script: /dev/shm/html/assets/js/DataTables-1.9.2/media/js/jquery.dataTables.min.js
+	 Script: /dev/shm/html/assets/js/DataTables-1.9.3/media/js/jquery.js
+	 Script: /dev/shm/html/assets/js/DataTables-1.9.3/media/js/jquery.dataTables.min.js
 	Imports: 2. Errors: 0
 	  Links: 1. Errors: 0
 	Scripts: 2. Errors: 0
