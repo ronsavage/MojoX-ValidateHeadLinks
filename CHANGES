@@ -1,7 +1,7 @@
 Revision history for Perl extension MojoX::ValidateHeadLinks.
 
 1.01  Not Released
-	- Update DataTables from V 1.9.2 to 1.9.3.
+	- Update DataTables from V 1.9.2 to 1.9.3, in t/run.t, t/assets/, and in the pod for MojoX::ValidateHeadLinks.
 
 1.00  Thu Aug 12 12:00:00 2012
 	- Original version.
