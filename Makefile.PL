@@ -21,6 +21,7 @@ WriteMakefile
 	},
 	DISTNAME  => 'MojoX-ValidateHeadLinks',
 	NAME      => 'MojoX::ValidateHeadLinks',
+	LICENSE   => 'perl_5',
 	PL_FILES  => {},
 	PREREQ_PM =>
 	{

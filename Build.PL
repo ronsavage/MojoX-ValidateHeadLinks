@@ -3,7 +3,7 @@ use Module::Build;
 Module::Build -> new
 (
 	module_name    => 'MojoX::ValidateHeadLinks',
-	license        => 'artistic',
+	license        => 'perl_5',
 	dist_abstract  => 'Ensure CSS and JS links in web pages point to real files',
 	dist_author    => 'Ron Savage <ron@savage.net.au>',
 	build_requires =>
