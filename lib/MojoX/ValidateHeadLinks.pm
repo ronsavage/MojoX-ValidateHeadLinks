@@ -385,7 +385,7 @@ to non-HTML resources (CSS, JS) point to real files.
 
 =head2 How does the -maxlevel parameter affect the output?
 
-In these examples, $DR stands for the /dev/shm/html/ directory.
+In these examples, $DR stands for the /dev/shm/html/ directory, the doc root of my dev box's web server.
 
 Output from a real run, where my dev web site is the same as my real web site (so -d $DR works):
 
