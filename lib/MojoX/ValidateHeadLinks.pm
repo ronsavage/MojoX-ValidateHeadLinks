@@ -411,6 +411,9 @@ Output from a real run, where my dev web site is the same as my real web site (s
 
 	(No output)
 
+	shell> echo $?
+	0
+
 =head1 Support
 
 Email the author, or log a bug on RT:
