@@ -3,7 +3,7 @@ use Test::More tests => 1;
 # ------------------------
 
 my($url)      = 'http://savage.net.au/Novels-etc.html';
-my(@result)   = `perl bin/validate.head.links.pl -d t -max debug -u $url`;
+my(@result)   = `$^X bin/validate.head.links.pl -d t -max debug -u $url`;
 my($result)   = join('', @result);
 my($expected) = <<EOS;
 URL: $url

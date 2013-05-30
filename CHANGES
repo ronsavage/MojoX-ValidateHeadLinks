@@ -1,5 +1,9 @@
 Revision history for Perl extension MojoX::ValidateHeadLinks.
 
+1.02  Thu May 30 17:00:00 2013
+	- Use $^X rather than perl in t/run.t to ensure the version of Perl used in the test is the same one
+		in which the pre-reqs are installed.
+
 1.01  Mon May 27 15:38:00 2013
 	- Update DataTables from V 1.9.2 to 1.9.4, in t/run.t, t/assets/, and in the pod for MojoX::ValidateHeadLinks.
 	- But, do not ship (to shrink the distro):
