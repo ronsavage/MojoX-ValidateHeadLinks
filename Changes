@@ -1,5 +1,9 @@
 Revision history for Perl extension MojoX::ValidateHeadLinks.
 
+1.03  Sun Jun  1 11:13:00 2014
+	- Rework access to DOM due to changes in Mojolicious.
+	- Rename CHANGES to Changes as per CPAN::Changes::SPEC.
+
 1.02  Thu May 30 17:00:00 2013
 	- Use $^X rather than perl in t/run.t to ensure the version of Perl used in the test is the same one
 		in which the pre-reqs are installed.

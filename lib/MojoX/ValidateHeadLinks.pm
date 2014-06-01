@@ -18,7 +18,7 @@ fieldhash my %maxlevel => 'maxlevel';
 fieldhash my %minlevel => 'minlevel';
 fieldhash my %url      => 'url';
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 # -----------------------------------------------
 
@@ -131,13 +131,13 @@ sub run
 			error => 0,
 		},
 	);
-	my($ua)   = Mojo::UserAgent -> new;
-	my($head) = $ua -> get($self -> url) -> res -> dom -> html -> head;
+	my($ua)  = Mojo::UserAgent -> new;
+	my($dom) = $ua -> get($self -> url) -> res -> dom;
 
 	my(@field);
 	my(@import);
 
-	for my $item (@{$head -> style})
+	for my $item (@{$dom -> find('html head style')})
 	{
 		next if (! $item -> can('text') );
 
@@ -148,13 +148,13 @@ sub run
 		for my $field (@field)
 		{
 			@import    = split(/\s+/, $field);
-			$import[1] =~ s/(["'])(.+)\1/$2/;
+			$import[1] =~ s/([\"\'])(.+)\1/$2/; # The backslashed are to help UltraEdit's syntax hiliter.
 
 			$self -> _count(\%want, 'import', $import[1]);
 		}
 	}
 
-	for my $item (@{$head -> link})
+	for my $item (@{$dom -> find('html head link')})
 	{
 		my($index);
 
@@ -177,7 +177,7 @@ sub run
 
 	try
 	{
-		my(@script) = $head -> script;
+		my(@script) = $dom -> find('html head script');
 		$can        = 1;
 	}
 	catch
@@ -187,7 +187,7 @@ sub run
 
 	if ($can)
 	{
-		for my $item (@{$head -> script})
+		for my $item (@{$dom -> find('html head script')})
 		{
 			$self -> _count(\%want, 'script', $$item{src}) if ($$item{src});
 		}
