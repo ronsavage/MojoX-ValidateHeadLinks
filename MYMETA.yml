@@ -16,7 +16,7 @@ name: MojoX-ValidateHeadLinks
 provides:
   MojoX::ValidateHeadLinks:
     file: lib/MojoX/ValidateHeadLinks.pm
-    version: 1.02
+    version: 1.03
 requires:
   Getopt::Long: 2.38
   Hash::FieldHash: 0.12
@@ -29,4 +29,4 @@ requires:
   warnings: 1.03
 resources:
   license: http://www.perlfoundation.org/artistic_license_2_0
-version: 1.02
+version: 1.03
