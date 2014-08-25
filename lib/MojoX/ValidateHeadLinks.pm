@@ -141,7 +141,7 @@ sub run
 	{
 		next if (! $item -> can('text') );
 
-		@field = map{s/^\s+//; s/\s$//; $_} split(/;/, $item -> text);
+		@field = grep{length} map{s/^\s+//m; s/\s+$//m; $_} split(/;/, $item -> text);
 
 		next if ($field[0] !~ /^\@import/);
 
