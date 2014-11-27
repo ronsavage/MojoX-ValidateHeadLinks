@@ -18,7 +18,7 @@ fieldhash my %maxlevel => 'maxlevel';
 fieldhash my %minlevel => 'minlevel';
 fieldhash my %url      => 'url';
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 
