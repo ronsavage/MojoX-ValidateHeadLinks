@@ -41,14 +41,14 @@
    "provides" : {
       "MojoX::ValidateHeadLinks" : {
          "file" : "lib/MojoX/ValidateHeadLinks.pm",
-         "version" : "1.03"
+         "version" : "1.04"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "license" : [
-         "http://opensource.org/licenses/artistic-license-2.0.php"
+         "http://www.perlfoundation.org/artistic_license_2_0"
       ]
    },
-   "version" : "1.03"
+   "version" : "1.04"
 }
