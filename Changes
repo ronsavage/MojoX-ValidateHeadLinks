@@ -1,15 +1,21 @@
 Revision history for Perl extension MojoX::ValidateHeadLinks.
 
+1.04  Thu Nov 27 14:58:00 2014
+	- Move t/run.t to xt/author/, so people installing this do not fail tests specific to my setup.
+	- Change a little bit of text in the docs.
+	- Reformat the docs to be a max of 100 chars per line.
+
 1.03  Sun Jun  1 11:13:00 2014
 	- Rework access to DOM due to changes in Mojolicious.
 	- Rename CHANGES to Changes as per CPAN::Changes::SPEC.
 
 1.02  Thu May 30 17:00:00 2013
-	- Use $^X rather than perl in t/run.t to ensure the version of Perl used in the test is the same one
-		in which the pre-reqs are installed.
+	- Use $^X rather than perl in t/run.t to ensure the version of Perl used in the test is the
+		same one in which the pre-reqs are installed.
 
 1.01  Mon May 27 15:38:00 2013
-	- Update DataTables from V 1.9.2 to 1.9.4, in t/run.t, t/assets/, and in the pod for MojoX::ValidateHeadLinks.
+	- Update DataTables from V 1.9.2 to 1.9.4, in t/run.t, t/assets/, and in the pod for
+		MojoX::ValidateHeadLinks.
 	- But, do not ship (to shrink the distro):
 		o DataTables-1.9.4/docs/
 		o DataTables-1.9.4/examples/

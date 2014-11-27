@@ -18,7 +18,7 @@ fieldhash my %maxlevel => 'maxlevel';
 fieldhash my %minlevel => 'minlevel';
 fieldhash my %url      => 'url';
 
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 # -----------------------------------------------
 
@@ -217,17 +217,17 @@ MojoX::ValidateHeadLinks - Ensure CSS and JS links in web pages point to real fi
 =head1 Synopsis
 
 	shell> validate.head.links.pl -h
-	shell> validate.head.links.pl -d /dev/shm/html -u http://127.0.0.1/index.html
+	shell> validate.head.links.pl -d /run/shm/html -u http://127.0.0.1/index.html
 
-This program calls the L</run()> method, which returns the number of errors found. Various logging options,
-discussed under L</Constructor and initialization> and in the L</FAQ>, control the amount of output. Nothing
-is printed by default.
+This program calls the L</run()> method, which returns the number of errors found. Various logging
+options, discussed under L</Constructor and initialization> and in the L</FAQ>, control the amount
+of output. Nothing is printed by default.
 
-On my machine, /dev/shm/ is the directory used to access Debian's built-in RAM disk, and /dev/shm/html/ is my
-web server's document root directory.
+On my machine, /run/shm/ is the directory used to access the Debian built-in RAM disk, and
+/run/shm/html/ is my web server document root directory.
 
-Since this script ships in the bin/ directory, it is installed somewhere along your executable search path
-when the module is installed.
+Since this script -validate.head.links.pl - ships in the bin/ directory, it is installed somewhere
+along your executable search path when the module is installed.
 
 =head1 Description
 
@@ -237,11 +237,11 @@ It does no more than this:
 
 =over 4
 
-=item o Download and parse a web page using L<Mojo::UserAgent>
+=item o Downloads and parses a web page using L<Mojo::UserAgent>
 
 Hence the -url parameter to validate.head.links.pl.
 
-=item o Check whether the CSS and JS links point to real files
+=item o Checks whether the CSS and JS links point to real files
 
 Hence the -directory parameter to validate.head.links.pl.
 
@@ -262,7 +262,7 @@ help on unpacking and installing.
 
 new(...) returns an object of type C<MojoX::ValidateHeadLinks>.
 
-This is the class's contructor.
+This is the class contructor.
 
 Usage: C<< MojoX::ValidateHeadLinks -> new() >>.
 
@@ -318,7 +318,7 @@ If the string supplied does not start with 'http', then 'http://' is prefixed to
 
 Here, the [] indicate an optional parameter.
 
-Get or set the name of your web server's doc root directory.
+Get or set the name of your web server doc root directory.
 
 =head2 log($level => $message)
 
@@ -336,7 +336,8 @@ For more details in the printed report, try:
 
 	MojoX::ValidateHeadLinks -> new(doc_root => $d, maxlevel => 'debug', url => $u) -> run;
 
-'maxlevel' is a parameter to L</new()>. See L</Constructor and Initialization>, and the L</FAQ>, for details.
+'maxlevel' is a parameter to L</new()>. See L</Constructor and Initialization>, and the L</FAQ>,
+for details.
 
 =head2 minlevel([$string])
 
@@ -380,23 +381,23 @@ Get or set the URL of the web page your wish to check.
 
 =head2 How does bin/validate.head.links.pl differ from linkcheck.pl?
 
-L<linkcheck.pl|http://world.std.com/~swmcd/steven/perl/pm/lc/linkcheck.html> does not check that links
-to non-HTML resources (CSS, JS) point to real files.
+L<linkcheck.pl|http://world.std.com/~swmcd/steven/perl/pm/lc/linkcheck.html> does not check that
+links to non-HTML resources (CSS, JS) point to real files.
 
 =head2 How does the -maxlevel parameter affect the output?
 
-In these examples, $DR stands for the /dev/shm/html/ directory, the doc root of my dev box's web server.
+In these examples, $DR stands for the /run/shm/html/ directory, the doc root of my web server.
 
 Output from a real run, where my dev web site is the same as my real web site (so -d $DR works):
 
 	shell> validate.head.links.pl -d $DR -url http://savage.net.au/Novels-etc.html -max debug
 
 	URL: http://savage.net.au/Novels-etc.html
-	 Import: /dev/shm/html/assets/js/DataTables-1.9.4/media/css/demo_page.css
-	 Import: /dev/shm/html/assets/js/DataTables-1.9.4/media/css/demo_table.css
-	   Link: /dev/shm/html/assets/css/local/default.css
-	 Script: /dev/shm/html/assets/js/DataTables-1.9.4/media/js/jquery.js
-	 Script: /dev/shm/html/assets/js/DataTables-1.9.4/media/js/jquery.dataTables.min.js
+	 Import: /run/shm/html/assets/js/DataTables-1.9.4/media/css/demo_page.css
+	 Import: /run/shm/html/assets/js/DataTables-1.9.4/media/css/demo_table.css
+	   Link: /run/shm/html/assets/css/local/default.css
+	 Script: /run/shm/html/assets/js/DataTables-1.9.4/media/js/jquery.js
+	 Script: /run/shm/html/assets/js/DataTables-1.9.4/media/js/jquery.dataTables.min.js
 	Imports: 2. Errors: 0
 	  Links: 1. Errors: 0
 	Scripts: 2. Errors: 0
