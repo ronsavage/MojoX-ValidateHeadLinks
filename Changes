@@ -1,5 +1,10 @@
 Revision history for Perl extension MojoX::ValidateHeadLinks.
 
+1.05  Unreleased.
+	- Create https://github.com/ronsavage/MojoX-ValidateHeadLinks.git.
+	- Git pull .gitignore and LICENSE (sic). Add to MANIFEST.
+	- Add repository info to Build.PL and Makefile.PL.
+
 1.04  Thu Nov 27 14:58:00 2014
 	- Move t/run.t to xt/author/, so people installing this do not fail tests specific to my setup.
 	- Change a little bit of text in the docs.

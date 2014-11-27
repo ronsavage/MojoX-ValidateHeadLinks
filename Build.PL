@@ -34,6 +34,13 @@ $class -> new
 	{
 		Module::Build => 0.3800,
 	},
+	meta_merge =>
+	{
+		resources =>
+		{
+			repository => 'https://github.com/ronsavage/MojoX-ValidateHeadLinks',
+		},
+	},
 	requires =>
 	{
 		feature         => 1.20,
